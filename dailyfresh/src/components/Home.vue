@@ -23,17 +23,19 @@
         </ul>
       </div>
     </div>
+    <div class="msg">Welcome！&nbsp;&nbsp;&nbsp;{{this.$route.params.username}}</div>
 
   </div>
 </template>
 
 
 <script>
+  import {showMsg} from "../assets/js/app";
+
   export default {
     data () {
       return {
         homeList: [],
-        newLogin: false,
       }
     },
     methods: {
@@ -47,6 +49,9 @@
     mounted() {
       this.axios.get('/getHomeList').then(res => {
         this.homeList = res.data
+        if (this.$route.params.newLogin){
+          showMsg(4000)
+        }
       }).catch(err => {
         console.log(err)
       });

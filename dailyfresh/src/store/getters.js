@@ -6,5 +6,4 @@ export const getUserAddress = state => state.userAddress;
 export const getUserPhone = state => state.userPhone;
 export const getAdminId = state => state.adminId;
 export const getCartCount = state => state.cartCount;
-export const isNewLogin = state => state.newLogin;
 

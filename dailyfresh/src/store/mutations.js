@@ -28,6 +28,3 @@ export const addCartCount = (state) => {
   state.cartCount++
 }
 
-export const setNewLogin = (state, data) => {
-  state.newLogin = data
-}

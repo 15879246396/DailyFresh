@@ -32,9 +32,7 @@ function fly(event) {
 }
 
 function showMsg(time=500) {
-  setTimeout(function () {
-    $(".msg").show().animate({width: '250px'}, time).fadeOut(3000).animate({width: '0px'}, time); //提示信息
-  }, 1000)
+  $(".msg").fadeIn().animate({width: '250px'}, time).fadeOut(3000).animate({width: '0px'}, time); //提示信息
 }
 
 export {
