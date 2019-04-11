@@ -11,5 +11,19 @@
     </div>
     <p>CopyRight © 2016 北京天天生鲜信息技术有限公司 All Rights Reserved</p>
     <p>电话：010-****888    京ICP备*******8号</p>
+    <div class="msg">Welcome！&nbsp;&nbsp;&nbsp;{{this.$route.params.username}}</div>
   </div>
 </template>
+
+<script>
+  import {showMsg} from "../assets/js/app";
+
+  export default {
+    mounted() {
+      if (this.$route.params.newLogin){
+        showMsg(4000)
+      }
+    }
+
+  }
+</script>

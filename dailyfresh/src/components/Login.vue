@@ -45,8 +45,9 @@
     methods: {
       onSubmit(){
         Bmob.User.login(this.username, this.pwd).then(res => {
-          alert('登陆成功！')
-          this.$router.push('/')
+          // alert('登陆成功！')
+          // this.$router.go(-1)
+          this.$router.push({name:'homeLink', params: {newLogin: true, username: this.username}})
         }).catch(err => {
           if (err.code == 101) {
             this.show_2 = true

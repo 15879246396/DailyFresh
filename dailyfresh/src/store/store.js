@@ -17,6 +17,8 @@ export const store = new Vuex.Store({
     userPhone: null,
     userAddress: null,
     adminId: null,
+    cartCount: 0,
+    newLogin: false
   },
   getters,
   mutations,

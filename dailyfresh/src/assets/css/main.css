@@ -636,3 +636,6 @@ html,body{height:100%}
 .stress{
 	color:#ff8800;
 }
+
+.u-flyer{display: block;width: 50px;height: 50px;border-radius: 50px;position: fixed;z-index: 9999;}
+.msg{position:fixed; top:110px; right:45px; z-index:10000; width:1px; height:52px; line-height:52px; font-size:20px; text-align:center; color:#fff; background:#39a93e; display:none}

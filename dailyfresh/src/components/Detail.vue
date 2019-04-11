@@ -29,8 +29,8 @@
         </div>
         <div class="total">总价：<em>{{getTotal}}元</em></div>
         <div class="operate_btn">
-          <a href="javascript:;" class="buy_btn">立即购买</a>
-          <a href="javascript:;" class="add_cart" id="add_cart" @click.prevent="addCart">加入购物车</a>
+          <a href="javascript:;" class="buy_btn" @click="Pay">立即购买</a>
+          <a href="javascript:;" class="add_cart fly" id="add_cart" @click="addCart">加入购物车</a>
         </div>
       </div>
     </div>
@@ -69,9 +69,12 @@
 
       </div>
     </div>
+    <div class="msg">已成功加入购物车！</div>
   </div>
 </template>
 <script>
+  import {fly} from "../assets/js/app";
+
   export default {
     data () {
       return {
@@ -101,12 +104,12 @@
 
     },
     methods: {
-      addCart(){
+      addCart(e){
         const query = Bmob.Query('Cart');
         query.equalTo("user", "==", this.$store.getters.getUserId);
         query.equalTo("goods", "==", this.goodsDetail.objectId);
+        query.equalTo("order_status", "==", 0)
         query.find().then(res => {
-          console.log(res)
           if (res.length) {
             Bmob.Query('Cart').get(res[0].objectId).then(res => {
               res.set('quantity', res.quantity+this.quantity)
@@ -119,9 +122,18 @@
             query.set("user",userID )
             query.set("goods", goodsID)
             query.set("quantity", this.quantity)
+            query.set("order_status", 0)
             query.save()
+            this.$store.dispatch('addCart')
           }
         })
+        fly(e)
+      },
+      Pay(){
+        const payCart = [this.goodsDetail]
+        payCart[0].quantity = this.quantity;
+        payCart[0].user = this.$store.getters.getUserId;
+        this.$router.push({name:'placeOrderLink', params: {payCart: payCart}})
       }
     },
     computed: {

@@ -6,6 +6,7 @@ import Cart from './components/Cart'
 import CMS from './components/cms/CMS'
 import CMSLogin from './components/cms/CMSLogin'
 import Detail from './components/Detail'
+import PlaceOrder from './components/PlaceOrder'
 
 import Header from './components/Header'
 import Search from './components/apps/SearchBar'
@@ -51,11 +52,17 @@ export const routes = [
     }},
   {path: '/cms', name: 'cmsLink', component: CMS, meta: {title: 'cms-天天生鲜'},},
   {path: '/cms_login', name: 'cmsLoginLink', component: CMSLogin, meta: {title: 'cms登录-天天生鲜'}},
-  {path: '/detail', name: 'detailLink', component: Detail, meta: {title: '商品详情-天天生鲜'},
+  {path: '/detail', name: 'detailLink', meta: {title: '商品详情-天天生鲜'},
     components: {
       default: Detail,
       'header': Header,
       'search': Search,
       'nav': Nav,
+    }},
+  {path: '/place_order', name: 'placeOrderLink', meta: {title: '提交订单-天天生鲜'},
+    components: {
+      default: PlaceOrder,
+      'header': Header,
+      'search': Search,
     }},
 ];

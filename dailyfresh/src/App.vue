@@ -6,7 +6,7 @@
       <router-view name="nav"></router-view>
       <router-view name="rotationChart"></router-view>
 
-    <router-view v-wechat-title="$route.meta.title"></router-view>
+      <router-view v-wechat-title="$route.meta.title"></router-view>
 
       <app-footer></app-footer>
     </body>
@@ -15,10 +15,12 @@
 
 <script>
 import Footer from './components/Footer'
+import RotationChart from './components/apps/RotationChart'
 
 export default {
   components: {
     appFooter: Footer,
+    appRotationChart: RotationChart,
   }
 }
 </script>
