@@ -7,6 +7,7 @@ import CMS from './components/cms/CMS'
 import CMSLogin from './components/cms/CMSLogin'
 import Detail from './components/Detail'
 import PlaceOrder from './components/PlaceOrder'
+import List from './components/List'
 
 import Header from './components/Header'
 import Search from './components/apps/SearchBar'
@@ -65,4 +66,12 @@ export const routes = [
       'header': Header,
       'search': Search,
     }},
+  {path: '/list', name: 'listLink', meta: {title: '商品列表-天天生鲜'},
+    components: {
+      default: List,
+      'header': Header,
+      'search': Search,
+      'nav': Nav,
+    }
+  },
 ];
